@@ -67,3 +67,11 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
+
+# Python
+venv/
+__pycache__/
+*.pyc
+extracted_data.csv
+token.json
+credentials.json

@@ -1,0 +1,5 @@
+- in read_data_doc read google spreadsheet
+- write to eoka_data.csv
+- optional: rewrite to docs if row is accepted (good data)
+- add read_data_doc.py script to manage.sh deploy and emulator
+

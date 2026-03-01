@@ -1,5 +1,20 @@
 #!/bin/bash
 
+# Function to handle Python setup and execution
+run_python_script() {
+    echo "--------------------------------"
+    echo "   Python Data Update"
+    echo "--------------------------------"
+    
+    # Install dependencies globally if needed (suppressing warnings if already installed)
+    echo "Ensuring requirements are installed..."
+    pip install -r requirements.txt --break-system-packages --quiet
+
+    # Run the script
+    echo "Running read_data_doc.py..."
+    python3 scripts/read_data_doc.py
+}
+
 # Function to display the menu
 show_menu() {
     echo "--------------------------------"
@@ -7,9 +22,10 @@ show_menu() {
     echo "--------------------------------"
     echo "1) Run Emulator (Localhost)"
     echo "2) Deploy to Firebase"
-    echo "3) Exit"
+    echo "3) Update Data (Python)"
+    echo "4) Exit"
     echo ""
-    read -p "Select an option [1-3]: " choice
+    read -p "Select an option [1-4]: " choice
 
     case $choice in
         1)
@@ -23,6 +39,9 @@ show_menu() {
             firebase deploy --only hosting
             ;;
         3)
+            run_python_script
+            ;;
+        4)
             exit 0
             ;;
         *)
@@ -43,8 +62,11 @@ else
         "deploy")
             firebase deploy --only hosting
             ;;
+        "update"|"python"|"data")
+            run_python_script
+            ;;
         *)
-            echo "Usage: $0 [host|deploy]"
+            echo "Usage: $0 [host|deploy|update]"
             exit 1
             ;;
     esac
