@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Names</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="translations.js"></script>
+    <script src="translate.js"></script>
+</head>
+<body>
+    <div class="container single">
+        <aside class="letters small">
+            <h2 data-translate="alphabet">Alphabet</h2>
+            <div class="grid">
+                <a href="names.html?letter=Α" id="letterA">Α</a>
+                <a href="names.html?letter=Β" id="letterB">Β</a>
+                <a href="names.html?letter=Γ" id="letterG">Γ</a>
+                <a href="names.html?letter=Δ" id="letterD">Δ</a>
+                <a href="names.html?letter=Ε" id="letterE">Ε</a>
+                <a href="names.html?letter=Ζ" id="letterZ">Ζ</a>
+                <a href="names.html?letter=Η" id="letterH">Η</a>
+                <a href="names.html?letter=Θ" id="letterTh">Θ</a>
+                <a href="names.html?letter=Ι" id="letterI">Ι</a>
+                <a href="names.html?letter=Κ" id="letterK">Κ</a>
+                <a href="names.html?letter=Λ" id="letterL">Λ</a>
+                <a href="names.html?letter=Μ" id="letterM">Μ</a>
+                <a href="names.html?letter=Ν" id="letterN">Ν</a>
+                <a href="names.html?letter=Ξ" id="letterX">Ξ</a>
+                <a href="names.html?letter=Ο" id="letterO">Ο</a>
+                <a href="names.html?letter=Π" id="letterP">Π</a>
+                <a href="names.html?letter=Ρ" id="letterR">Ρ</a>
+                <a href="names.html?letter=Σ" id="letterS">Σ</a>
+                <a href="names.html?letter=Τ" id="letterT">Τ</a>
+                <a href="names.html?letter=Υ" id="letterU">Υ</a>
+                <a href="names.html?letter=Φ" id="letterPh">Φ</a>
+                <a href="names.html?letter=Χ" id="letterCh">Χ</a>
+                <a href="names.html?letter=Ψ" id="letterPs">Ψ</a>
+                <a href="names.html?letter=Ω" id="letterO2">Ω</a>
+            </div>
+        </aside>
+
+        <main class="content">
+            <a class="back" href="index.html" data-translate="back">← Back</a>
+                <h1 id="heading">Names</h1>
+                <ul id="namesList"></ul>
+        </main>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(location.search);
+        const letter = params.get('letter') || 'Α';
+        const group = params.get('group') || null;
+        const heading = document.getElementById('heading');
+        const namesList = document.getElementById('namesList');
+
+        // Names organized by letter and group
+        const namesData = {
+            'Α': {
+                'greek': ['Αναστασία', 'Αλέξανδρος'],
+                'british': ['Andrew'],
+                'turkish': []
+            },
+            'Β': {
+                'greek': ['Βασίλης'],
+                'british': [],
+                'turkish': []
+            },
+            'Γ': {
+                'greek': ['Γιώργος'],
+                'british': [],
+                'turkish': []
+            },
+            'Δ': {
+                'greek': ['Δημήτρης'],
+                'british': [],
+                'turkish': []
+            },
+            'Ε': {
+                'greek': ['Ελένη'],
+                'british': [],
+                'turkish': []
+            },
+            'Ζ': {
+                'greek': ['Ζωή'],
+                'british': [],
+                'turkish': []
+            },
+            'Η': {
+                'greek': ['Ηλίας'],
+                'british': [],
+                'turkish': []
+            },
+            'Θ': {
+                'greek': ['Θεοδώρα'],
+                'british': [],
+                'turkish': []
+            },
+            'Ι': {
+                'greek': ['Ιωάννα'],
+                'british': [],
+                'turkish': []
+            },
+            'Κ': {
+                'greek': ['Κωνσταντίνος'],
+                'british': [],
+                'turkish': []
+            },
+            'Λ': {
+                'greek': ['Λουκάς'],
+                'british': [],
+                'turkish': []
+            },
+            'Μ': {
+                'greek': ['Μαρία', 'Μιχάλης'],
+                'british': [],
+                'turkish': []
+            },
+            'Ν': {
+                'greek': ['Νικόλας'],
+                'british': [],
+                'turkish': []
+            },
+            'Ξ': {
+                'greek': ['Ξένια'],
+                'british': [],
+                'turkish': []
+            },
+            'Ο': {
+                'greek': ['Ορέστης'],
+                'british': [],
+                'turkish': []
+            },
+            'Π': {
+                'greek': ['Παύλος'],
+                'british': [],
+                'turkish': []
+            },
+            'Ρ': {
+                'greek': ['Ραφαέλα'],
+                'british': [],
+                'turkish': []
+            },
+            'Σ': {
+                'greek': ['Σοφία', 'Στέλιος'],
+                'british': [],
+                'turkish': []
+            },
+            'Τ': {
+                'greek': ['Τάσος'],
+                'british': [],
+                'turkish': []
+            },
+            'Υ': {
+                'greek': ['Υπατία'],
+                'british': [],
+                'turkish': []
+            },
+            'Φ': {
+                'greek': ['Φώτης'],
+                'british': [],
+                'turkish': []
+            },
+            'Χ': {
+                'greek': ['Χρήστος'],
+                'british': [],
+                'turkish': []
+            },
+            'Ψ': {
+                'greek': [],
+                'british': [],
+                'turkish': []
+            },
+            'Ω': {
+                'greek': ['Ωριγένη'],
+                'british': [],
+                'turkish': []
+            }
+        };
+
+        // Map names to detailed pages
+        const fileMap = {
+            'Αναστασία': 'anastasia.html',
+            'Αλέξανδρος': 'alexandros.html',
+            'Βασίλης': 'vasilis.html',
+            'Γιώργος': 'giorgos.html',
+            'Μαρία': 'maria.html'
+        };
+
+        function updateHeading() {
+            const currentLang = localStorage.getItem('language') || 'el';
+            let headingText;
+            
+            const groupNames = {
+                'greek': { en: 'Greek Cypriots', el: 'Ελληνοκύπριοι' },
+                'british': { en: 'British', el: 'Βρετανοί' },
+                'turkish': { en: 'Turkish Cypriots', el: 'Τουρκοκύπριοι' }
+            };
+
+            if (group && groupNames[group]) {
+                if (currentLang === 'en') {
+                    headingText = `${groupNames[group].en} - Names starting with ${letter}`;
+                } else {
+                    headingText = `${groupNames[group].el} - Ονόματα που ξεκινούν με ${letter}`;
+                }
+            } else {
+                if (currentLang === 'en') {
+                    headingText = `Names starting with ${letter}`;
+                } else {
+                    headingText = `Ονόματα που ξεκινούν με ${letter}`;
+                }
+            }
+            heading.textContent = headingText;
+        }
+
+        function updateAlphabetLinks() {
+            const links = document.querySelectorAll('.letters.small .grid a');
+            links.forEach(link => {
+                const letter = new URL(link.href, window.location).searchParams.get('letter');
+                if (letter && group) {
+                    link.href = `names.html?letter=${letter}&group=${group}`;
+                } else if (letter) {
+                    link.href = `names.html?letter=${letter}`;
+                }
+            });
+        }
+
+        function displayNames() {
+            const allNames = namesData[letter] || {};
+            let names = [];
+            
+            if (group && allNames[group]) {
+                names = allNames[group];
+            } else {
+                // Show all names from all groups for this letter
+                names = [...(allNames.greek || []), ...(allNames.british || []), ...(allNames.turkish || [])];
+            }
+
+            // Clear the list
+            namesList.innerHTML = '';
+            
+            if (names.length === 0) {
+                const li = document.createElement('li');
+                li.textContent = '(No names available)';
+                namesList.appendChild(li);
+                return;
+            }
+
+            for (const name of names) {
+                const li = document.createElement('li');
+                const file = fileMap[name] ? `names/${fileMap[name]}` : 'names/unknown.html';
+                const a = document.createElement('a');
+                a.href = file;
+                a.textContent = name;
+                li.appendChild(a);
+                namesList.appendChild(li);
+            }
+        }
+
+        // Initialize on load and update when language changes
+        updateHeading();
+        updateAlphabetLinks();
+        displayNames();
+        window.addEventListener('languageChanged', updateHeading);
+    </script>
+</body>
+</html>
