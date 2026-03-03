@@ -56,7 +56,7 @@ const translations = {
     "search-placeholder": "Αναζήτηση...",
     "home": "ΑΡΧΙΚΗ",
     "calendar": "ΗΜΕΡΟΛΟΓΙΟ",
-    "people": "ΕΜΠΛΕΚΟΜΕΝΟΙ",
+    "people": "ΣΥΜΜΕΤΕΧΟΝΤΕΣ",
     "documents": "ΕΓΓΡΑΦΑ",
     "contact": "ΕΠΙΚΟΙΝΩΝΙΑ",
     
@@ -77,7 +77,7 @@ const translations = {
     "next-btn": "Επόμενο →",
     
     // Tab 3
-    "people-title": "ΕΜΠΛΕΚΟΜΕΝΟΙ",
+    "people-title": "ΣΥΜΜΕΤΕΧΟΝΤΕΣ",
     "names-sidebar": "Ονόματα",
     
     // Tab 4

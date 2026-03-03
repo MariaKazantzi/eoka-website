@@ -25,7 +25,7 @@ def get_docs_service():
     return build('docs', 'v1', credentials=creds)
 
 def extract_table_to_csv(doc_id):
-    if doc_id == 'YOUR_DOC_ID_HERE':
+    if doc_id == '1BXdcgemh1mJopDMrq8HvJQZF-jffaMGDJGNZriW9ngk':
         print("---------------------------------------------------------")
         print("❌ ERROR: You need to set the DOCUMENT_ID in the script.")
         print("1. Open your Google Doc in a browser.")
