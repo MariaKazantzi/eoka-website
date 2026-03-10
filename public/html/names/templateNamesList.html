@@ -1,0 +1,28 @@
+<!--
+	Template for generating namesList.html
+	Usage: Replace {{NAMES_LIST}} with a list of links to each person's profile.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="UTF-8">
+		<title>Names List</title>
+		<link rel="stylesheet" href="../../style/style.css">
+		<style>
+			.names-list { max-width: 600px; margin: 40px auto; padding: 24px; border-radius: 12px; background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+			.names-list h2 { color: #2c3e50; margin-bottom: 16px; }
+			.names-list ul { list-style: none; padding: 0; }
+			.names-list li { margin-bottom: 10px; }
+			.names-list a { color: #3498db; text-decoration: none; font-weight: bold; }
+			.names-list a:hover { text-decoration: underline; }
+		</style>
+</head>
+<body>
+	<div class="names-list">
+		<h2>Names List</h2>
+		<ul>
+			{{NAMES_LIST}}
+		</ul>
+	</div>
+</body>
+</html>

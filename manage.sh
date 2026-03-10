@@ -8,11 +8,13 @@ run_python_script() {
     
     # Install dependencies globally if needed (suppressing warnings if already installed)
     echo "Ensuring requirements are installed..."
-    pip install -r requirements.txt --break-system-packages --quiet
+    pip install -r scripts/requirements.txt --break-system-packages --quiet
 
-    # Run the script
+    # Run the scripts
     echo "Running read_data_doc.py..."
     python3 scripts/read_data_doc.py
+    echo "Running write_data_to_html.py..."
+    python3 scripts/write_data_to_html.py
 }
 
 # Function to display the menu
@@ -30,12 +32,12 @@ show_menu() {
     case $choice in
         1)
             echo "Starting Firebase Emulator..."
-            # Starts the emulator for hosting. 
-            # You can add --open to automatically open the browser.
+            run_python_script
             firebase emulators:start --only hosting
             ;;
         2)
             echo "Deploying to Firebase..."
+            run_python_script
             firebase deploy --only hosting
             ;;
         3)
